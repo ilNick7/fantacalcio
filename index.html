@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>Butliga 25–26 • Regolamento</title>
+  <meta name="description" content="Regolamento ufficiale della lega Fantacalcio Butliga 25–26." />
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#111214;
+      --panel2:#15171a;
+      --text:#f3f3f3;
+      --muted:#b8b8b8;
+      --brand:#f2c94c;  /* giallastro */
+      --brand2:#ffd86b;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --radius2:22px;
+      --max:960px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(242,201,76,.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(242,201,76,.12), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit;text-decoration:none}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,11,.78);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo{
+      width:34px;height:34px;border-radius:11px;flex:0 0 auto;
+      background: radial-gradient(circle at 30% 30%, var(--brand2), var(--brand));
+      box-shadow: 0 0 0 1px rgba(0,0,0,.35) inset;
+    }
+    h1{
+      margin:0;
+      font-size:14px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(242,201,76,.35);
+      background: rgba(242,201,76,.08);
+      color: var(--brand2);
+      font-size:12px;
+      font-weight:700;
+      margin-left:6px;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 14px 60px;}
+    .hero{
+      margin-top:14px;
+      background: linear-gradient(180deg, rgba(242,201,76,.14), rgba(255,255,255,.02));
+      border:1px solid rgba(242,201,76,.22);
+      border-radius: var(--radius2);
+      padding:18px 16px;
+      box-shadow: var(--shadow);
+    }
+    .hero h2{margin:0 0 6px;font-size:20px}
+    .hero p{margin:0;color:var(--muted)}
+    .meta{
+      margin-top:10px;
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    }
+    .mini{
+      font-size:12px;color:var(--muted);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding:6px 10px;border-radius:999px;
+    }
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:800;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn.brand{
+      border-color: rgba(242,201,76,.32);
+      background: rgba(242,201,76,.14);
+    }
+    .card{
+      margin-top:12px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      padding:14px 14px;
+    }
+    .card strong{display:block;margin-bottom:4px}
+    .card span{color:var(--muted);font-size:13px}
+    details{
+      margin-top:10px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      overflow:hidden;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+    }
+    summary::-webkit-details-marker{display:none}
+    .badge{
+      width:28px;height:28px;border-radius:10px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: rgba(242,201,76,.16);
+      border:1px solid rgba(242,201,76,.22);
+      color: var(--brand2);
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .chev{margin-left:auto;opacity:.7; transition: transform .15s ease}
+    details[open] .chev{transform: rotate(180deg)}
+    .content{padding:0 14px 14px;color:rgba(243,243,243,.92)}
+    .content p{margin:10px 0 0;color:rgba(243,243,243,.9);font-size:14px}
+    .hint{
+      margin-top:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(242,201,76,.28);
+      background: rgba(242,201,76,.08);
+      color: rgba(255,255,255,.92);
+      font-size:13px;
+    }
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12px;
+      padding-top:12px;
+      border-top:1px solid var(--border);
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="logo" aria-hidden="true"></div>
+      <h1>Butliga 25–26 <span class="pill">Regolamento</span></h1>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h2>Regolamento ufficiale</h2>
+      <p>Pagina ufficiale del regolamento della lega Fantacalcio <b>Butliga 25–26</b>.</p>
+      <div class="meta">
+        <div class="mini">Stagione: <b>25–26</b></div>
+        <div class="mini">Ultimo aggiornamento: <b><span id="lastUpdate">—</span></b></div>
+      </div>
+      <div class="row">
+        #regolamento📚 Vai al regolamento</a>
+        #contatti✉️ Contatti</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <strong>Come useremo questa pagina</strong>
+      <span>Qui inseriremo tutte le regole (asta, rosa, formazione, punteggi, scambi, sanzioni…).</span>
+    </section>
+
+    <section id="regolamento" class="card">
+      <strong>Regolamento (bozza)</strong>
+      <span>Per ora è vuoto: appena mi incolli le regole, lo compilo e lo impagino.</span>
+
+      <details open>
+        <summary><span class="badge">1</span> Struttura lega <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: numero squadre, competizioni, criteri spareggio.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">2</span> Asta & Budget <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: crediti iniziali, modalità asta, rilanci, tempi.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">3</span> Rosa & Ruoli <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: composizione rosa (P/D/C/A), limiti, panchina.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">4</span> Formazione <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: consegna formazione, moduli, sostituzioni, ritardi.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">5</span> Punteggi <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: fonte voti, bonus/malus, modificatori, SV.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">6</span> Mercato & Scambi <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: finestre mercato, limiti scambi, approvazioni.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">7</span> Casi limite <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: rinvii/recuperi, partite sospese, regole speciali.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary><span class="badge">8</span> Sanzioni <span class="chev">⌄</span></summary>
+        <div class="content">
+          <p>Placeholder: ritardi, comportamento, penalità, controversie.</p>
+          <div class="hint"><b>Tip:</b> qui conviene essere super chiari per evitare discussioni.</div>
+        </div>
+      </details>
+    </section>
+
+    <section id="contatti" class="card">
+      <strong>Contatti</strong>
+      <span>Modifica qui: admin / gruppo WhatsApp / Telegram.</span>
+      <div class="hint" style="margin-top:10px">
+        Esempio: <b>Admin</b> Mattia • WhatsApp: <i>link</i> • Telegram: <i>link</i>
+      </div>
+    </section>
+
+    <footer>
+      <div>© Butliga 25–26</div>
+      <div>#top⬆️ Torna su</a></div>
+    </footer>
+  </main>
+
+  <script>
+    // Mostra data odierna come "ultimo aggiornamento"
+    const el = document.getElementById('lastUpdate');
+    const fmt = new Intl.DateTimeFormat('it-IT', { day:'2-digit', month:'2-digit', year:'numeric' });
+    el.textContent = fmt.format(new Date());
+  </script>
+</body>
+</html>
