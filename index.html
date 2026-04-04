@@ -342,7 +342,36 @@
         Esempio: <b>Admin</b> Mattia • WhatsApp: <i>link</i> • Telegram: <i>link</i>
       </div>
     </section>
-
+    
+    <section class="card" id="classifica" style="margin-top:20px">
+      <strong>Classifica Butliga (realtime)</strong>
+      <span>Sincronizzata con Leghe Fantacalcio. Se non visibile, usa il pulsante.</span>
+    
+      <div style="margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.25)">
+        URL_CLASSIFICA_LEGA</iframe>
+      </div>
+    
+      <div class="row" style="margin-top:12px">
+        URL_CLASSIFICA_LEGA
+          📊 Apri classifica su Leghe Fantacalcio
+        </a>
+      </div>
+    
+      <div class="hint" id="iframeHint" style="display:none;margin-top:10px">
+        Nota: Leghe Fantacalcio potrebbe bloccare l’inserimento della classifica dentro siti esterni.
+        In quel caso usa il pulsante “Apri classifica”.
+      </div>
+    </section>
+    
+    <script>
+      // Se l'iframe viene bloccato da X-Frame-Options/CSP spesso resta vuoto:
+      // non possiamo leggere errori cross-origin, ma possiamo mostrare un hint dopo un po'.
+      setTimeout(() => {
+        const hint = document.getElementById('iframeHint');
+        hint.style.display = 'block';
+      }, 1800);
+    </script>
+    
     <footer>
       <div>© Butliga 25–26</div>
       <div>#top⬆️ Torna su</a></div>
