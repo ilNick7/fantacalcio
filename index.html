@@ -53,11 +53,19 @@
       width:34px;
       height:34px;
       border-radius:11px;
-      object-fit: cover;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
+      background: radial-gradient(circle at 30% 30%, var(--brand2), var(--brand));
       box-shadow: 0 0 0 1px rgba(0,0,0,.35) inset;
-      flex: 0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+    }
+    
+    .logo img{
+      width:70%;
+      height:70%;
+      object-fit:contain;
+      display:block;
     }
     h1{
       margin:0;
@@ -180,11 +188,13 @@
 
 <body>
   <header>
-    <div class="topbar">
-      assets/IMG_8244.png
-      <h1>Butliga 2025-26 <span class="pill">Regolamento</span></h1>
+  <div class="topbar">
+    <div class="logo">
+      <img src="https://ilnick7.github.io/fantacalcio/assets/IMG_8244.png">
     </div>
-  </header>
+    <h1>Butliga 25–26 <span class="pill">Regolamento</span></h1>
+  </div>
+</header>
 
   <main class="wrap">
     <section class="hero">
