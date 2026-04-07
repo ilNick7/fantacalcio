@@ -1,25 +1,15 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <!-- Base -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <title>Butliga 25–26 • Regolamento ufficiale</title>
-  <meta name="description" content="Regolamento ufficiale della lega Fantacalcio Butliga 25–26. Versione mobile-first, sempre aggiornata.">
 
-  <!-- Colori tema -->
   <meta name="theme-color" content="#f2c94c">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  assets/logo.png
+  assets/logo.png
 
-  <!-- Icone -->
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="apple-touch-icon" href="assets/logo.png">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/style.css">
+  assets/style.css
 </head>
 
 <body id="top">
@@ -27,317 +17,324 @@
 <header>
   <div class="topbar">
     <div class="logo">
-      <img src="assets/logo.png" alt="Butliga">
+      assets/logo.png
     </div>
-    <h1>Butliga 25–26 <span class="pill">Regolamento</span></h1>
+    <h1>Butliga 25–26</h1>
   </div>
 </header>
 
 <main class="wrap">
 
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Regolamento Butliga 2025–26</h2>
+    <p>Documento ufficiale della lega Fantacalcio Butliga.</p>
+  </section>
+
   <!-- SEARCH -->
   <section class="card" id="searchCard">
     <strong>Cerca nel regolamento</strong>
-    <div class="searchSub">Scrivi parole o una domanda.</div>
-
     <div class="searchRow">
-      <input id="searchInput" type="search" autocomplete="off"
-        placeholder="Es. mancata formazione, scambi gennaio…">
-      <button class="btnMini" id="clearSearch">✕</button>
+      <input id="searchInput" type="search" placeholder="Cerca… (es. mancata formazione, scambi gennaio)">
     </div>
-
-    <div class="chipRow">
-      <button class="chip" data-q="mancata consegna formazione">Mancata formazione</button>
-      <button class="chip" data-q="scambi gennaio">Scambi gennaio</button>
-      <button class="chip" data-q="sforamento crediti">Sforamento crediti</button>
-      <button class="chip" data-q="partite rinviate 6 politico">Rinvii</button>
-    </div>
-
     <div id="searchMeta" class="searchMeta"></div>
     <div id="searchResults" class="results"></div>
   </section>
 
-  <!-- IN EVIDENZA -->
+  <!-- HOME: 10 CARD -->
   <section class="card">
-    <h2 class="sectionTitle">📌 In evidenza</h2>
+    <h2 class="homeTitle">Sezioni del regolamento</h2>
 
-    <a href="#art-19" class="quickItem">
-      <span>Mancata consegna formazione</span>
-      <span class="meta">Art. 19</span>
-    </a>
+    <div class="sectionList">
 
-    <a href="#art-26" class="quickItem">
-      <span>Scambi consentiti</span>
-      <span class="meta">Gennaio</span>
-    </a>
+      <div class="sectionCard">
+        <h3>Struttura della lega</h3>
+        <p>Definizione della Butliga e competizioni ufficiali.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s1').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
 
-    <a href="#art-36" class="quickItem">
-      <span>Sforamento crediti</span>
-      <span class="meta">Sanzioni</span>
-    </a>
+      <div class="sectionCard">
+        <h3>Partecipanti & Squadre</h3>
+        <p>Gestione squadre, nomi e casi di abbandono.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s2').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
 
-    <a href="#art-31" class="quickItem">
-      <span>Partite rinviate</span>
-      <span class="meta">6 politico</span>
-    </a>
+      <div class="sectionCard">
+        <h3>Asta & Budget</h3>
+        <p>Crediti iniziali, asta e mercati.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s3').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Composizione della rosa</h3>
+        <p>Numero giocatori e ruoli.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s4').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Formazione & Moduli</h3>
+        <p>Consegna formazione e sostituzioni.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s5').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Punteggi</h3>
+        <p>Voti, bonus e malus.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s6').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Mercato & Scambi</h3>
+        <p>Scambi e finestre di mercato.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s7').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Partite rinviate</h3>
+        <p>Rinvii, recuperi e 6 politico.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s8').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Sanzioni</h3>
+        <p>Penalità e irregolarità.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s9').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+      <div class="sectionCard">
+        <h3>Disposizioni finali</h3>
+        <p>Validità e poteri decisionali.</p>
+        <button class="sectionBtn" onclick="document.getElementById('s10').scrollIntoView({behavior:'smooth'})">Vedi articoli</button>
+      </div>
+
+    </div>
   </section>
 
-  <!-- REGOLAMENTO (LISTA SEZIONI) -->
-  <section class="card">
-    <h2 class="sectionTitle">📚 Regolamento</h2>
-
-    <a href="#s1" class="quickItem"><span>Struttura della lega</span></a>
-    <a href="#s2" class="quickItem"><span>Partecipanti & Squadre</span></a>
-    <a href="#s3" class="quickItem"><span>Asta & Budget</span></a>
-    <a href="#s4" class="quickItem"><span>Composizione rosa</span></a>
-    <a href="#s5" class="quickItem"><span>Formazione & Moduli</span></a>
-    <a href="#s6" class="quickItem"><span>Punteggi</span></a>
-    <a href="#s7" class="quickItem"><span>Mercato & Scambi</span></a>
-    <a href="#s8" class="quickItem"><span>Partite rinviate</span></a>
-    <a href="#s9" class="quickItem"><span>Sanzioni</span></a>
-    <a href="#s10" class="quickItem"><span>Disposizioni finali</span></a>
-  </section>
-
-  <!-- REGOLAMENTO COMPLETO (SOTTO) -->
+  <!-- REGOLAMENTO COMPLETO -->
   <section id="regolamento" class="card">
 
     <div class="hint">
-      Il presente regolamento disciplina lo svolgimento della lega Fantacalcio <b>Butliga 25–26</b>.
-      Tutti i partecipanti, prendendo parte alla lega, dichiarano di averlo letto e accettato integralmente.
+      Il presente regolamento disciplina la lega Fantacalcio <b>Butliga 25–26</b>.
+      Tutti i partecipanti dichiarano di averlo letto e accettato.
     </div>
 
-    <!-- ======================
-         SEZIONE 1
-    ======================= -->
-    <details open>
-      <summary>
-        <span class="badge">1</span>
-        Struttura della Lega
-        <span class="chev">⌄</span>
-      </summary>
-
+    <!-- SEZIONE 1 -->
+    <details id="s1" open>
+      <summary><span class="badge">1</span> Struttura della Lega <span class="chev">⌄</span></summary>
       <div class="content">
-        <p>
-          La <b>Butliga</b> è una lega di Fantacalcio composta da <b>8 squadre</b>,
-          basata sulle prestazioni dei calciatori della Serie A.
-          Comprende una competizione principale (<b>Butliga</b>)
-          e un torneo secondario (<b>Codiaz</b>).
-        </p>
-
+        <p>La Butliga è una lega di Fantacalcio composta da 8 squadre.</p>
         <details>
           <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p id="art-1"><b>Art. 1</b> – La Butliga è una lega di Fantacalcio composta da 8 squadre.</p>
-            <p id="art-2"><b>Art. 2</b> – Le competizioni ufficiali sono Butliga e Codiaz.</p>
-            <p id="art-3"><b>Art. 3</b> – La Butliga rappresenta la competizione principale.</p>
+            <p id="art-1"><b>Art. 1</b> – La Butliga è una lega di Fantacalcio.</p>
+            <p id="art-2"><b>Art. 2</b> – Competizioni: Butliga e Codiaz.</p>
+            <p id="art-3"><b>Art. 3</b> – La Butliga è la competizione principale.</p>
           </div>
         </details>
       </div>
     </details>
 
     <!-- SEZIONE 2 -->
-    <details>
+    <details id="s2">
       <summary><span class="badge">2</span> Partecipanti & Squadre <span class="chev">⌄</span></summary>
       <div class="content">
-        <p>
-          La lega è composta da <b>8 partecipanti</b>.  
-          Ogni squadra è gestita da un singolo manager con nome libero.
-        </p>
-    
-        <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
-          <div class="content">
-            <p><b>Art. 4</b> – Ogni partecipante gestisce una sola squadra di Fantacalcio.</p>
-            <p><b>Art. 5</b> – Il nome della squadra è libero, purché non offensivo o inappropriato.</p>
-            <p><b>Art. 6</b> – La gestione delle squadre è esclusivamente individuale.</p>
-            <p><b>Art. 7</b> – In caso di abbandono la squadra diventa “squadra fantasma”.</p>
-          </div>
-        </details>
+        <p>Gestione individuale delle squadre.</p>
+        <details><summary>📜 Leggi articoli completi</summary><div class="content">
+          <p id="art-4"><b>Art. 4</b> – Una squadra per partecipante.</p>
+          <p id="art-5"><b>Art. 5</b> – Nome squadra libero.</p>
+          <p id="art-6"><b>Art. 6</b> – Gestione individuale.</p>
+          <p id="art-7"><b>Art. 7</b> – Squadra fantasma in caso di abbandono.</p>
+        </div></details>
       </div>
     </details>
-    
+
     <!-- SEZIONE 3 -->
-    <details>
+    <details id="s3">
       <summary><span class="badge">3</span> Asta & Budget <span class="chev">⌄</span></summary>
       <div class="content">
-        <p>
-          Asta iniziale con <b>500 crediti</b>, modalità classica a chiamata,
-          divisa per ruoli.  
-          I crediti residui si conservano per tutta la stagione.
-        </p>
-    
-        <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
-          <div class="content">
-            <p><b>Art. 8</b> – Budget iniziale pari a 500 crediti per squadra.</p>
-            <p><b>Art. 9</b> – Asta iniziale con modalità classica a chiamata.</p>
-            <p><b>Art. 10</b> – Asta divisa per ruoli: Portieri, Difensori, Centrocampisti, Attaccanti.</p>
-            <p><b>Art. 11</b> – I crediti residui rimangono disponibili per l’intera stagione.</p>
-            <p><b>Art. 12</b> – Le finestre di mercato sono stabilite e comunicate dall’admin.</p>
-          </div>
-        </details>
+        <p>Budget iniziale e asta a chiamata.</p>
+        <details><summary>📜 Leggi articoli completi</summary><div class="content">
+          <p id="art-8"><b>Art. 8</b> – Budget iniziale 500 crediti.</p>
+          <p id="art-9"><b>Art. 9</b> – Asta classica.</p>
+          <p id="art-10"><b>Art. 10</b> – Asta per ruoli.</p>
+          <p id="art-11"><b>Art. 11</b> – Crediti residui conservati.</p>
+          <p id="art-12"><b>Art. 12</b> – Mercati stabiliti dall’admin.</p>
+        </div></details>
       </div>
     </details>
-    
-    <!-- SEZIONE 4 -->
-    <details>
-      <summary><span class="badge">4</span> Composizione della Rosa <span class="chev">⌄</span></summary>
+
+    <details id="s4">
+      <summary>
+        <span class="badge">4</span>
+        Composizione della Rosa
+        <span class="chev">⌄</span>
+      </summary>
+
       <div class="content">
-        <p>
-          Ogni squadra ha una rosa da <b>25 giocatori</b>, senza limiti per squadra reale.
-        </p>
-    
+        <p>Ogni squadra deve rispettare una composizione di rosa prestabilita per numero e ruoli.</p>
+
         <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
+          <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p><b>Art. 13</b> – Ogni squadra è composta da 25 calciatori.</p>
-            <p><b>Art. 14</b> – Distribuzione ruoli: 3 P, 8 D, 8 C, 6 A.</p>
-            <p><b>Art. 15</b> – La panchina fa parte della rosa.</p>
-            <p><b>Art. 16</b> – Nessun limite di giocatori per squadra reale.</p>
+            <p id="art-13"><b>Art. 13</b> – Ogni squadra è composta da 25 calciatori.</p>
+            <p id="art-14"><b>Art. 14</b> – La rosa deve includere: 3 portieri, 8 difensori, 8 centrocampisti e 6 attaccanti.</p>
+            <p id="art-15"><b>Art. 15</b> – La panchina fa parte integrante della rosa.</p>
+            <p id="art-16"><b>Art. 16</b> – Non sono previsti limiti di calciatori appartenenti alla stessa squadra reale.</p>
           </div>
         </details>
       </div>
     </details>
-    
-    <!-- SEZIONE 5 -->
-    <details>
-      <summary><span class="badge">5</span> Formazione & Moduli <span class="chev">⌄</span></summary>
+
+    <details id="s5">
+      <summary>
+        <span class="badge">5</span>
+        Formazione & Moduli
+        <span class="chev">⌄</span>
+      </summary>
+
       <div class="content">
-        <p>
-          Tutti i moduli Fantacalcio sono ammessi.  
-          Consegna entro 1 minuto prima della prima partita.
-        </p>
-    
+        <p>Regole relative alla consegna della formazione e alla gestione delle sostituzioni.</p>
+
         <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
+          <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p><b>Art. 17</b> – Ammessi tutti i moduli Fantacalcio.</p>
-            <p><b>Art. 18</b> – Consegna formazione entro 1 minuto dalla prima gara.</p>
-            <p><b>Art. 19</b> – Mancata consegna: sconfitta 3–0 e 60 punti.</p>
-            <p><b>Art. 20</b> – Massimo 5 sostituzioni automatiche con cambio modulo.</p>
+            <p id="art-17"><b>Art. 17</b> – Sono ammessi tutti i moduli previsti dal Fantacalcio.</p>
+            <p id="art-18"><b>Art. 18</b> – La formazione deve essere consegnata entro un minuto prima dell’inizio della prima gara.</p>
+            <p id="art-19"><b>Art. 19</b> – La mancata consegna comporta sconfitta a tavolino per 3–0 e punteggio di 60 punti.</p>
+            <p id="art-20"><b>Art. 20</b> – Sono consentite fino a 5 sostituzioni automatiche con possibile cambio modulo.</p>
           </div>
         </details>
       </div>
     </details>
-    
-    <!-- SEZIONE 6 -->
-    <details>
-      <summary><span class="badge">6</span> Punteggi <span class="chev">⌄</span></summary>
+
+    <details id="s6">
+      <summary>
+        <span class="badge">6</span>
+        Punteggi
+        <span class="chev">⌄</span>
+      </summary>
+
       <div class="content">
-        <p>
-          Sistema <b>Fantavoto</b> con bonus e malus standard di Fantacalcio.it.
-        </p>
-    
+        <p>Il punteggio di giornata viene calcolato tramite il sistema Fantavoto.</p>
+
         <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
+          <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p><b>Art. 21</b> – Fonte voti: Fantacalcio.it.</p>
-            <p><b>Art. 22</b> – Sistema di calcolo: Fantavoto.</p>
-            <p><b>Art. 23</b> – Bonus standard.</p>
-            <p><b>Art. 24</b> – Malus standard.</p>
-            <p><b>Art. 25</b> – Gli SV non contribuiscono al punteggio.</p>
+            <p id="art-21"><b>Art. 21</b> – La fonte voti ufficiale è Fantacalcio.it.</p>
+            <p id="art-22"><b>Art. 22</b> – Il sistema di calcolo utilizzato è il Fantavoto.</p>
+            <p id="art-23"><b>Art. 23</b> – Sono applicati i bonus standard.</p>
+            <p id="art-24"><b>Art. 24</b> – Sono applicati i malus standard.</p>
+            <p id="art-25"><b>Art. 25</b> – I calciatori SV non contribuiscono al punteggio.</p>
           </div>
         </details>
       </div>
     </details>
-    
-    <!-- SEZIONE 7 -->
-    <details>
-      <summary><span class="badge">7</span> Mercato & Scambi <span class="chev">⌄</span></summary>
+
+    <details id="s7">
+      <summary>
+        <span class="badge">7</span>
+        Mercato & Scambi
+        <span class="chev">⌄</span>
+      </summary>
+
       <div class="content">
-        <p>
-          Gli scambi sono consentiti <b>solo nel mese di gennaio</b>.
-        </p>
-    
+        <p>Regole relative agli scambi tra squadre e alle finestre di mercato.</p>
+
         <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
+          <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p><b>Art. 26</b> – Scambi consentiti solo a gennaio.</p>
-            <p><b>Art. 27</b> – Ammessi scambi singoli e multipli.</p>
-            <p><b>Art. 28</b> – Nessun limite al numero di scambi.</p>
-            <p><b>Art. 29</b> – Scambi automatici senza approvazione.</p>
+            <p id="art-26"><b>Art. 26</b> – Gli scambi sono consentiti esclusivamente nel mese di gennaio.</p>
+            <p id="art-27"><b>Art. 27</b> – Sono ammessi scambi singoli e multipli.</p>
+            <p id="art-28"><b>Art. 28</b> – Non è previsto un limite al numero di scambi.</p>
+            <p id="art-29"><b>Art. 29</b> – Gli scambi sono automatici e non soggetti ad approvazione.</p>
           </div>
         </details>
       </div>
     </details>
-    
-    <!-- SEZIONE 8 -->
-    <details>
-      <summary><span class="badge">8</span> Partite Rinviate <span class="chev">⌄</span></summary>
+
+    <details id="s8">
+      <summary>
+        <span class="badge">8</span>
+        Partite Rinviate
+        <span class="chev">⌄</span>
+      </summary>
+
       <div class="content">
-        <p>
-          La gestione dipende dal numero di partite rinviate
-          e dal tempo di recupero.
-        </p>
-    
+        <p>Gestione delle partite rinviate e criteri di calcolo delle giornate.</p>
+
         <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
+          <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p><b>Art. 30</b> – Gestione basata su numero e tempistiche.</p>
-            <p><b>Art. 31</b> – 3+ partite rinviate: giornata sospesa salvo voto.</p>
-            <p><b>Art. 32</b> – 1–2 rinvii: entro 10 gg si attende, oltre 6 politico.</p>
-            <p><b>Art. 33</b> – Il 6 politico sostituisce ogni altro voto.</p>
+            <p id="art-30"><b>Art. 30</b> – La gestione si basa sul numero di partite rinviate e sulla tempistica di recupero.</p>
+            <p id="art-31"><b>Art. 31</b> – Con 3 o più partite rinviate la giornata è sospesa salvo votazione.</p>
+            <p id="art-32"><b>Art. 32</b> – Con 1 o 2 rinvii: entro 10 giorni si attende, oltre si assegna 6 politico.</p>
+            <p id="art-33"><b>Art. 33</b> – Il 6 politico sostituisce ogni altro voto.</p>
           </div>
         </details>
       </div>
     </details>
-    
-    <!-- SEZIONE 9 -->
-    <details>
-      <summary><span class="badge">9</span> Sanzioni Tecniche <span class="chev">⌄</span></summary>
+
+    <details id="s9">
+      <summary>
+        <span class="badge">9</span>
+        Sanzioni Tecniche
+        <span class="chev">⌄</span>
+      </summary>
+
       <div class="content">
-        <p>
-          Sanzioni solo per violazioni tecniche e vantaggi indebiti.
-          Valide <b>solo per la classifica Butliga</b>.
-        </p>
-    
+        <p>Sanzioni applicate esclusivamente in caso di violazioni tecniche.</p>
+
         <details>
-          <summary><b>📜 Leggi articoli completi</b></summary>
+          <summary>📜 Leggi articoli completi</summary>
           <div class="content">
-            <p><b>Art. 34</b> – Sanzioni applicate solo a violazioni tecniche.</p>
-            <p><b>Art. 35</b> – Vietato sforare i crediti.</p>
-            <p><b>Art. 36</b> – Penalità per sforamento: −1 punto ogni 5 crediti (raddoppio progressivo).</p>
-            <p><b>Art. 37–38</b> – Offerte extra: annullamento + −2 punti per offerta.</p>
-            <p><b>Art. 39–41</b> – Favoreggiamento: voto unanime → −10 punti a ogni coinvolto.</p>
-            <p><b>Art. 42</b> – Penalità valide solo per Butliga.</p>
+            <p id="art-34"><b>Art. 34</b> – Le sanzioni si applicano solo a violazioni tecniche.</p>
+            <p id="art-35"><b>Art. 35</b> – È vietato sforare i crediti disponibili.</p>
+            <p id="art-36"><b>Art. 36</b> – Penalità di 1 punto ogni 5 crediti di sforamento, con raddoppio progressivo.</p>
+            <p id="art-37"><b>Art. 37</b> – Le offerte oltre il limite sono nulle.</p>
+            <p id="art-38"><b>Art. 38</b> – Penalità di 2 punti per ogni offerta eccedente.</p>
+            <p id="art-39"><b>Art. 39</b> – È vietato il favoreggiamento palese.</p>
+            <p id="art-40"><b>Art. 40</b> – Il favoreggiamento è accertato tramite voto unanime dei non coinvolti.</p>
+            <p id="art-41"><b>Art. 41</b> – Penalità di 10 punti per ogni soggetto coinvolto.</p>
+            <p id="art-42"><b>Art. 42</b> – Le penalità si applicano solo alla classifica Butliga.</p>
           </div>
         </details>
       </div>
     </details>
-    
-    <!-- SEZIONE 10 -->
-    <details>
-    <summary><span class="badge">10</span> Disposizioni Finali <span class="chev">⌄</span></summary>
-    <div class="content">
-      <p>
-        Il regolamento è vincolante e valido per l’intera stagione.
-      </p>
-  
-      <details>
-        <summary><b>📜 Leggi articoli completi</b></summary>
-        <div class="content">
-          <p><b>Art. 43</b> – I casi non previsti sono regolamentati dall’admin.</p>
-          <p><b>Art. 44</b> – Le decisioni possono essere impugnate con votazione.</p>
-          <p><b>Art. 45</b> – Il regolamento non è modificabile in stagione.</p>
-          <p><b>Art. 46</b> – Priorità al regolamento Butliga.</p>
-          <p><b>Art. 47</b> – Valido dal 15 agosto a fine stagione.</p>
-        </div>
-      </details>
-    </div>
-  </details>
+
+    <details id="s10">
+      <summary>
+        <span class="badge">10</span>
+        Disposizioni Finali
+        <span class="chev">⌄</span>
+      </summary>
+
+      <div class="content">
+        <p>Disposizioni conclusive e validità del regolamento.</p>
+
+        <details>
+          <summary>📜 Leggi articoli completi</summary>
+          <div class="content">
+            <p id="art-43"><b>Art. 43</b> – I casi non previsti sono regolamentati dall’admin.</p>
+            <p id="art-44"><b>Art. 44</b> – Le decisioni dell’admin possono essere impugnate con votazione.</p>
+            <p id="art-45"><b>Art. 45</b> – Il regolamento non è modificabile durante la stagione.</p>
+            <p id="art-46"><b>Art. 46</b> – Ha priorità il regolamento Butliga.</p>
+            <p id="art-47"><b>Art. 47</b> – Il regolamento è valido dal 15 agosto fino a fine stagione.</p>
+          </div>
+        </details>
+      </div>
+    </details>
+
 
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div>© Butliga 25–26</div>
-    <a href="#top">⬆️ Torna su</a>
+    #top⬆️ Torna su</a>
   </footer>
 
 </main>
 
-<!-- SEARCH SCRIPT -->
-<script src="assets/search.js" defer></script>
+assets/search.jsscript>
 
 </body>
 </html>
