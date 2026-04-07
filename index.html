@@ -35,37 +35,29 @@
 
 <main class="wrap">
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Regolamento ufficiale</h2>
-    <p>Pagina ufficiale del regolamento della lega Fantacalcio <b>Butliga 2025–26</b>.</p>
-  </section>
-
   <!-- SEARCH -->
   <section class="card" id="searchCard">
     <strong>Cerca nel regolamento</strong>
-    <div class="searchSub">
-      Scrivi parole o una domanda (es. “mancata formazione”, “scambi a gennaio”, “sforamento crediti”).
-    </div>
+    <div class="searchSub">Scrivi parole o una domanda.</div>
 
     <div class="searchRow">
       <input id="searchInput" type="search" autocomplete="off"
-        placeholder="Cerca in modo intelligente… (es. “se non consegno la formazione cosa succede?”)">
-      <button class="btnMini" id="clearSearch" type="button" aria-label="Pulisci ricerca">✕</button>
+        placeholder="Es. mancata formazione, scambi gennaio…">
+      <button class="btnMini" id="clearSearch">✕</button>
     </div>
 
-    <div class="chipRow" aria-label="Suggerimenti ricerca">
-      <button class="chip" type="button" data-q="mancata consegna formazione">Mancata formazione</button>
-      <button class="chip" type="button" data-q="scambi gennaio">Scambi gennaio</button>
-      <button class="chip" type="button" data-q="sforamento crediti penalità">Sforamento crediti</button>
-      <button class="chip" type="button" data-q="partite rinviate 10 giorni 6 politico">Rinvii / 6 politico</button>
+    <div class="chipRow">
+      <button class="chip" data-q="mancata consegna formazione">Mancata formazione</button>
+      <button class="chip" data-q="scambi gennaio">Scambi gennaio</button>
+      <button class="chip" data-q="sforamento crediti">Sforamento crediti</button>
+      <button class="chip" data-q="partite rinviate 6 politico">Rinvii</button>
     </div>
 
-    <div id="searchMeta" class="searchMeta" style="display:none;"></div>
-    <div id="searchResults" class="results" style="display:none;"></div>
+    <div id="searchMeta" class="searchMeta"></div>
+    <div id="searchResults" class="results"></div>
   </section>
 
-  <!-- IN EVIDENZA (HOME SOFASCORE STYLE) -->
+  <!-- IN EVIDENZA -->
   <section class="card">
     <h2 class="sectionTitle">📌 In evidenza</h2>
 
@@ -90,7 +82,23 @@
     </a>
   </section>
 
-  <!-- REGOLAMENTO -->
+  <!-- REGOLAMENTO (LISTA SEZIONI) -->
+  <section class="card">
+    <h2 class="sectionTitle">📚 Regolamento</h2>
+
+    <a href="#s1" class="quickItem"><span>Struttura della lega</span></a>
+    <a href="#s2" class="quickItem"><span>Partecipanti & Squadre</span></a>
+    <a href="#s3" class="quickItem"><span>Asta & Budget</span></a>
+    <a href="#s4" class="quickItem"><span>Composizione rosa</span></a>
+    <a href="#s5" class="quickItem"><span>Formazione & Moduli</span></a>
+    <a href="#s6" class="quickItem"><span>Punteggi</span></a>
+    <a href="#s7" class="quickItem"><span>Mercato & Scambi</span></a>
+    <a href="#s8" class="quickItem"><span>Partite rinviate</span></a>
+    <a href="#s9" class="quickItem"><span>Sanzioni</span></a>
+    <a href="#s10" class="quickItem"><span>Disposizioni finali</span></a>
+  </section>
+
+  <!-- REGOLAMENTO COMPLETO (SOTTO) -->
   <section id="regolamento" class="card">
 
     <div class="hint">
