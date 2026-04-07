@@ -263,6 +263,130 @@
       font-weight:700;
     }
 
+
+    /* --- Search --- */
+    .searchSub{
+      margin-top:8px;
+      color:rgba(255,255,255,.70);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .searchRow{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    #searchInput{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    #searchInput::placeholder{ color: rgba(255,255,255,.45); }
+    #searchInput:focus{
+      border-color: rgba(242,201,76,.38);
+      box-shadow: 0 0 0 4px rgba(242,201,76,.10);
+    }
+
+    .btnMini{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.85);
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .chipRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .chip{
+      border:1px solid rgba(242,201,76,.25);
+      background: rgba(242,201,76,.08);
+      color: rgba(255,255,255,.88);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .chip:active{ transform: translateY(1px); }
+
+    .searchMeta{
+      margin-top:10px;
+      color: rgba(255,255,255,.65);
+      font-size:12px;
+    }
+
+    .results{
+      margin-top:12px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+    }
+
+    .resultItem{
+      padding:12px 12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      cursor:pointer;
+    }
+    .resultItem:first-child{ border-top:none; }
+    .resultTop{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .resultBadge{
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid rgba(242,201,76,.28);
+      background: rgba(242,201,76,.10);
+      color: var(--brand2);
+      font-size:12px;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .resultTitle{
+      font-weight:900;
+      font-size:13px;
+    }
+    .resultSnippet{
+      margin-top:6px;
+      color: rgba(255,255,255,.75);
+      font-size:13px;
+      line-height:1.45;
+    }
+    mark{
+      background: rgba(242,201,76,.30);
+      color: #fff;
+      border-radius:6px;
+      padding:0 3px;
+    }
+
+    .flash{
+      outline: 3px solid rgba(242,201,76,.30);
+      border-radius: 10px;
+      animation: flash 900ms ease;
+    }
+    @keyframes flash{
+      0%{ outline-color: rgba(242,201,76,.0); }
+      35%{ outline-color: rgba(242,201,76,.35); }
+      100%{ outline-color: rgba(242,201,76,.0); }
+    }
+
   </style>
 </head>
   
@@ -280,6 +404,27 @@
     <section class="hero">
       <h2>Regolamento ufficiale</h2>
       <p>Pagina ufficiale del regolamento della lega Fantacalcio <b>Butliga 2025–26</b>.</p>
+    </section>
+
+    <section class="card" id="searchCard">
+      <strong>Cerca nel regolamento</strong>
+      <div class="searchSub">Scrivi parole o una domanda (es. “mancata formazione”, “scambi a gennaio”, “sforamento crediti”).</div>
+
+      <div class="searchRow">
+        <input id="searchInput" type="search" autocomplete="off"
+          placeholder="Cerca in modo intelligente… (es. “se non consegno la formazione cosa succede?”)">
+        <button class="btnMini" id="clearSearch" type="button" aria-label="Pulisci ricerca">✕</button>
+      </div>
+
+      <div class="chipRow" aria-label="Suggerimenti ricerca">
+        <button class="chip" type="button" data-q="mancata consegna formazione">Mancata formazione</button>
+        <button class="chip" type="button" data-q="scambi gennaio">Scambi gennaio</button>
+        <button class="chip" type="button" data-q="sforamento crediti penalità">Sforamento crediti</button>
+        <button class="chip" type="button" data-q="partite rinviate 10 giorni 6 politico">Rinvii / 6 politico</button>
+      </div>
+
+      <div id="searchMeta" class="searchMeta" style="display:none;"></div>
+      <div id="searchResults" class="results" style="display:none;"></div>
     </section>
 
     <section id="regolamento" class="card">
@@ -534,5 +679,267 @@
   </footer>
 
   </main>
+
+  <script>
+    (() => {
+      // --- Utilità testo ---
+      const stop = new Set([
+        "il","lo","la","i","gli","le","un","uno","una","di","del","dello","della","dei","degli","delle",
+        "a","al","allo","alla","ai","agli","alle","da","dal","dallo","dalla","dai","dagli","dalle",
+        "in","nel","nello","nella","nei","negli","nelle","su","sul","sullo","sulla","sui","sugli","sulle",
+        "per","tra","fra","che","e","o","ma","se","come","cosa","quando","dove","quale","quali","quanto",
+        "sono","sia","essere","viene","vengono","fare","fatto","fai","fa","chi","cui"
+      ]);
+
+      // Sinonimi / espansioni “dominio Fantacalcio”
+      const synonyms = {
+        "formazione": ["schieramento","lineup"],
+        "mancata": ["assenza","non"],
+        "consegna": ["inserimento","invio"],
+        "tavolino": ["3-0","tre a zero","a tavolino"],
+        "scambi": ["trade","scambio"],
+        "gennaio": ["mese di gennaio"],
+        "sforamento": ["supero","oltre","negativo","credito negativo"],
+        "crediti": ["budget","soldi","fondi"],
+        "rinviate": ["rinvio","recupero","posticipo"],
+        "recupero": ["rinviata","rinviate"],
+        "politico": ["6","sei politico"],
+        "sanzioni": ["penalità","punizioni","multe"],
+        "penalità": ["sanzioni","malus","punti tolti"],
+        "butliga": ["campionato","classifica"],
+        "codiaz": ["coppa","torneo"]
+      };
+
+      // Boost “intelligente” per domande comuni
+      function smartBoostTokens(q){
+        const t = q.toLowerCase();
+        const extra = [];
+        if (/(non|mancata).*(consegna|inser).*(formazione)/.test(t) || /non.*consegno.*formazione/.test(t)){
+          extra.push("formazione","consegna","tavolino","60","3-0","sconfitta");
+        }
+        if (/scambi.*gennaio|gennaio.*scambi/.test(t)){
+          extra.push("scambi","gennaio");
+        }
+        if (/sforamento|credito negativo|oltre.*crediti|supero.*crediti/.test(t)){
+          extra.push("sforamento","crediti","penalità");
+        }
+        if (/rinvi|recuper/.test(t)){
+          extra.push("rinviate","recupero","10","politico","6");
+        }
+        return extra;
+      }
+
+      function normalize(s){
+        return (s || "")
+          .toLowerCase()
+          .normalize("NFD").replace(/[\u0300-\u036f]/g,"") // rimuove accenti
+          .replace(/[^\p{L}\p{N}\s-]/gu," ")
+          .replace(/\s+/g," ")
+          .trim();
+      }
+
+      function tokenize(s){
+        const base = normalize(s).split(" ").filter(w => w && !stop.has(w) && w.length > 1);
+        // espansione sinonimi
+        const expanded = [];
+        for(const w of base){
+          expanded.push(w);
+          if (synonyms[w]) expanded.push(...synonyms[w].map(normalize));
+        }
+        // boost da query “intelligente”
+        expanded.push(...smartBoostTokens(s).map(normalize));
+        // dedup
+        return [...new Set(expanded)];
+      }
+
+      // Fuzzy match leggero: match per prefisso o contenimento
+      function fuzzyScore(term, text){
+        if (!term) return 0;
+        if (text.includes(term)) return 3;
+        // prefisso su parole
+        const parts = text.split(" ");
+        for(const p of parts){
+          if (p.startsWith(term)) return 2;
+        }
+        return 0;
+      }
+
+      // --- Indicizzazione articoli ---
+      const index = []; // {art, section, title, text, node, detailsOuter, detailsInner}
+
+      function buildIndex(){
+        // cerca paragrafi dentro i "details" interni (articoli)
+        const innerContents = document.querySelectorAll('#regolamento details details .content');
+        innerContents.forEach(content => {
+          const innerDetails = content.closest('details'); // quello "Leggi articoli completi"
+          const outerDetails = innerDetails ? innerDetails.closest('#regolamento > details') : null;
+
+          const sectionTitle = outerDetails?.querySelector('summary')?.innerText?.replace("⌄","").trim() || "Sezione";
+          const ps = content.querySelectorAll('p');
+          ps.forEach((p, idx) => {
+            const raw = p.innerText.trim();
+            if (!raw) return;
+
+            const m = raw.match(/Art\.\s*(\d+)/i);
+            const art = m ? parseInt(m[1],10) : null;
+
+            // assegna un id per scroll
+            if (!p.id){
+              p.id = art ? `art-${art}` : `artx-${Math.random().toString(16).slice(2)}`;
+            }
+
+            index.push({
+              art,
+              section: sectionTitle,
+              title: art ? `Art. ${art}` : "Articolo",
+              text: raw,
+              node: p,
+              outer: outerDetails,
+              inner: innerDetails
+            });
+          });
+        });
+      }
+
+      // --- Rendering risultati ---
+      const input = document.getElementById('searchInput');
+      const resultsBox = document.getElementById('searchResults');
+      const meta = document.getElementById('searchMeta');
+      const clearBtn = document.getElementById('clearSearch');
+
+      function highlightSnippet(text, terms){
+        let snip = text;
+        // taglia snippet
+        if (snip.length > 220) snip = snip.slice(0, 220) + "…";
+        // evidenzia termini (max 6)
+        const t = terms.slice(0,6).sort((a,b)=>b.length-a.length);
+        for(const k of t){
+          if (k.length < 2) continue;
+          const re = new RegExp(`(${k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'ig');
+          snip = snip.replace(re, '<mark>$1</mark>');
+        }
+        return snip;
+      }
+
+      function scoreItem(item, qTokens){
+        const text = normalize(item.text + " " + item.section);
+        let score = 0;
+
+        // punteggio per match token
+        for(const t of qTokens){
+          score += fuzzyScore(t, text);
+        }
+
+        // bonus per match “numero articolo”
+        const artNum = (input.value.match(/\b(\d{1,2})\b/) || [])[1];
+        if (artNum && item.art === parseInt(artNum,10)) score += 10;
+
+        // bonus se contiene parole chiave “forti”
+        if (text.includes("sconfitta") && qTokens.includes("formazione")) score += 2;
+        if (text.includes("gennaio") && qTokens.includes("scambi")) score += 2;
+
+        return score;
+      }
+
+      function openAndScroll(item){
+        // apri sezione e articoli
+        if (item.outer) item.outer.open = true;
+        if (item.inner) item.inner.open = true;
+
+        // scroll e flash
+        item.node.scrollIntoView({ behavior:"smooth", block:"center" });
+        item.node.classList.add("flash");
+        setTimeout(()=> item.node.classList.remove("flash"), 950);
+      }
+
+      function doSearch(){
+        const q = input.value.trim();
+        if (!q){
+          resultsBox.style.display = "none";
+          meta.style.display = "none";
+          resultsBox.innerHTML = "";
+          return;
+        }
+
+        const qTokens = tokenize(q);
+        // calcola punteggi
+        const scored = index
+          .map(it => ({ it, score: scoreItem(it, qTokens) }))
+          .filter(x => x.score > 0)
+          .sort((a,b) => b.score - a.score)
+          .slice(0, 8);
+
+        meta.style.display = "block";
+        meta.textContent = scored.length
+          ? `Risultati: ${scored.length} • Suggerimento: prova anche “Art. 19” o “scambi gennaio”.`
+          : `Nessun risultato. Prova con parole diverse (es. “formazione”, “scambi”, “crediti”, “rinviate”).`;
+
+        if (!scored.length){
+          resultsBox.style.display = "none";
+          resultsBox.innerHTML = "";
+          return;
+        }
+
+        resultsBox.style.display = "block";
+        resultsBox.innerHTML = scored.map(({it, score}) => {
+          const badge = it.art ? `Art. ${it.art}` : it.title;
+          return `
+            <div class="resultItem" role="button" tabindex="0" data-target="${it.node.id}">
+              <div class="resultTop">
+                <div class="resultBadge">${badge}</div>
+                <div class="resultTitle">${it.section}</div>
+              </div>
+              <div class="resultSnippet">${highlightSnippet(it.text, tokenize(q))}</div>
+            </div>
+          `;
+        }).join("");
+
+        // click handlers
+        resultsBox.querySelectorAll('.resultItem').forEach(el => {
+          el.addEventListener('click', () => {
+            const id = el.getAttribute('data-target');
+            const found = index.find(x => x.node.id === id);
+            if (found) openAndScroll(found);
+          });
+          el.addEventListener('keydown', (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              el.click();
+            }
+          });
+        });
+      }
+
+      // Chips
+      document.querySelectorAll('.chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          input.value = btn.getAttribute('data-q');
+          doSearch();
+          input.focus();
+        });
+      });
+
+      clearBtn.addEventListener('click', () => {
+        input.value = "";
+        doSearch();
+        input.focus();
+      });
+
+      // Ctrl/⌘ K per focus
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){
+          e.preventDefault();
+          input.focus();
+        }
+      });
+
+      input.addEventListener('input', doSearch);
+
+      // Build index on load
+      window.addEventListener('DOMContentLoaded', () => {
+        buildIndex();
+      });
+    })();
+    </script>
 </body>
 </html>
