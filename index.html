@@ -75,6 +75,33 @@
       gap:10px;
     }
 
+    
+    .hero{
+      margin-top:14px;
+      padding:20px 18px;
+      border-radius:var(--radius2);
+      background: linear-gradient(
+        180deg,
+        rgba(242,201,76,.18),
+        rgba(255,255,255,.02)
+      );
+      border:1px solid rgba(242,201,76,.25);
+      box-shadow:var(--shadow);
+    }
+
+    .hero h2{
+      margin:0 0 6px;
+      font-size:20px;
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    
     /* Logo: quadrato giallo + immagine sopra */
     .logo{
       width:34px;
@@ -206,6 +233,36 @@
       font-size:13px;
       line-height:1.55;
     }
+
+    
+    .hint{
+      margin-top:12px;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(242,201,76,.30);
+      background:rgba(242,201,76,.08);
+      color:rgba(255,255,255,.92);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    
+    .footer{
+      margin-top:20px;
+      padding-top:12px;
+      border-top:1px solid var(--border);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .footer a{
+      color:var(--brand2);
+      font-weight:700;
+    }
+
   </style>
 </head>
   
@@ -470,17 +527,12 @@
       }, 1800);
     </script>
     
-    <footer>
-      <div>© Butliga 25–26</div>
-      <div>#top⬆️ Torna su</a></div>
-    </footer>
-  </main>
+    
+  <footer class="footer">
+    <div>© Butliga 25–26</div>
+    <a href="#top">⬆️ Torna su</a>
+  </footer>
 
-  <script>
-    // Mostra data odierna come "ultimo aggiornamento"
-    const el = document.getElementById('lastUpdate');
-    const fmt = new Intl.DateTimeFormat('it-IT', { day:'2-digit', month:'2-digit', year:'numeric' });
-    el.textContent = fmt.format(new Date());
-  </script>
+  </main>
 </body>
 </html>
